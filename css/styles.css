@@ -1,0 +1,274 @@
+#cssmenu{ height:37px; display:block; padding:0; margin: 0 auto;  border:1px solid; border-radius:5px; } 
+#cssmenu > ul {list-style:inside none; padding:0; margin:0;} 
+#cssmenu > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;} 
+#cssmenu > ul > li > a{ outline:none; display:block; position:relative; padding:12px 20px; font:bold 13px/100% Arial, Helvetica, sans-serif; text-align:center; text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.4); } 
+#cssmenu > ul > li:first-child > a{border-radius:5px 0 0 5px;} 
+#cssmenu > ul > li > a:after{ content:''; position:absolute; border-right:1px solid; top:-1px; bottom:-1px; right:-2px; z-index:99; } 
+#cssmenu ul li.has-sub:hover > a:after{top:0; bottom:0;} 
+#cssmenu > ul > li.has-sub > a:before{ content:''; position:absolute; top:18px; right:6px; border:5px solid transparent; border-top:5px solid #fff; } 
+#cssmenu > ul > li.has-sub:hover > a:before{top:19px;} 
+#cssmenu ul li.has-sub:hover > a{ background:#3f3f3f; border-color:#3f3f3f; padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; } 
+#cssmenu ul li.has-sub:hover > ul, #cssmenu ul li.has-sub:hover > div{display:block;} 
+#cssmenu ul li.has-sub > a:hover{background:#3f3f3f; border-color:#3f3f3f;} 
+#cssmenu ul li > ul, #cssmenu ul li > div{ display:none; width:auto; position:absolute; top:38px; padding:10px 0; background:#3f3f3f; border-radius:0 0 5px 5px; z-index:999; } 
+#cssmenu ul li > ul{width:200px;} 
+#cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;} 
+#cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:#fff; text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); } 
+
+#cssmenu, #cssmenu > ul > li > ul > li a:hover{ background:#ff9812; background:-moz-linear-gradient(top, #ff9812 0%, #e17310 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9812), color-stop(100%,#e17310)); background:-webkit-linear-gradient(top, #ff9812 0%,#e17310 100%); background:-o-linear-gradient(top, #ff9812 0%,#e17310 100%); background:-ms-linear-gradient(top, #ff9812 0%,#e17310 100%); background:linear-gradient(top, #ff9812 0%,#e17310 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9812', endColorstr='#e17310',GradientType=0); } 
+#cssmenu{border-color:#b05a0d;} 
+#cssmenu > ul > li > a{border-right:1px solid #b05a0d; color:#fff;} 
+#cssmenu > ul > li > a:after{border-color:#ffa32b;} 
+#cssmenu > ul > li > a:hover{background:#e17310;} 
+#cssmenu > ul > li > a.last1{border:none; } 
+
+
+
+
+.sidebar1{
+width:730px;
+
+padding:0px 0 0 0px;
+position:relative;
+left:0px;
+}
+
+.sidebarheading {
+width:737px; margin:10px 10px 0 10px;
+-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;
+background-color:#bad7e6; color:#22425e; font-size:14px; font-weight:bold; padding:10px 0 10px 15px; text-shadow:1px 1px #DCEEF7;
+border-bottom:1px #8A9296 solid;
+}
+
+.slidebarcontent 
+
+{
+    background-color:#FFFFFF; list-style:none;float:left;
+width:720px; border:1px  #8A9296 solid; border-top:none;
+padding:10px 15px 15px 15px; margin:0px 0 15px 10px;
+-moz-border-radius-bottomleft:6px;-webkit-border-bottom-left-radius:6px;-khtml-border-bottom-left-radius:6px;border-bottom-left-radius:6px;
+-moz-border-radius-bottomright:6px;-webkit-border-bottom-right-radius:6px;-khtml-border-bottom-right-radius:6px;border-bottom-right-radius:6px;
+}
+
+.profileImage
+{
+    margin:10px 10px 10px 10px;
+}
+
+.slidebarcontent td
+{
+    height:20px;
+}
+
+
+.Lable
+{
+    
+    color:Black;
+}
+
+.button{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;font-family:arial;font-size:12px;font-weight: bold;padding:8px 12px 8px 12px;text-align: center;cursor:pointer; margin:10px 10px 0 0; float:left;}
+.green{color:#fff;background: #7dc44e;text-shadow:1px 1px #4c9021;}
+
+.detailview
+{
+     padding:10px Width:752px; padding:10px 15px 15px 15px; margin:0px 0 15px 10px;
+}
+
+
+.MainPhotoContainer
+{
+	float: left;
+	background-image: url( '../images/SerchBG.png' );
+	background-repeat: no-repeat;
+	width: 750px;
+	height: 300px;
+}
+
+
+
+.ExpressIntereestContainer
+{
+	float: left;
+	background-image: url( '../images/ExpressInerestBg.png' );
+	background-repeat: no-repeat;
+	width: 730px;
+	height: 283px;
+}
+.PhotouserId
+{
+	float:left;
+	padding-left: 105px;
+	padding-top: 18px;
+	color: #33CCFF;
+	font-family: calibri;
+	font-size: large;
+	font-weight: bold;
+	width:100px;
+}
+
+.PhotoMenubarExpressInterest
+{
+	float: left;
+	width: 346px;
+	padding-top: 13px;
+	padding-left: 25px;
+	font-family: Calibri;
+	font-size: small;
+	color: #333333;
+}
+.PhotoMenubar
+{
+	float:left;
+	width:346px;
+	padding-top:33px;
+	padding-left:45px;
+}
+.PhotoSingleMenu
+{
+	float: left;
+	width: 113px;
+	color: #808080;
+	font-family: Calibri;
+	padding-left:2px;
+	
+}
+.PhotoSingleMenu a
+{
+	list-style-type: none;
+	font-family: Calibri;
+	color: #858585;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	font-size: 14px;
+	padding-top:3px;
+}
+.PhotoSingleCenter
+{
+	float: left;
+	width: 105px;
+	color: #808080;
+	font-family: Calibri;
+	padding-left:6px;
+}
+.Photo
+{
+	float:left;
+	padding-left:41px;
+	padding-top:32px;
+	width:160px;
+}
+.PhotoInfo
+{
+	float:left;
+	width:420px;
+	padding-top:30px;
+	
+}
+.Column
+{
+	float: left;
+	font-family: Calibri;
+	color: #333333;
+	width: 100px;
+	font-size: 12px;
+	padding-left:1px;
+}
+.ColumnX
+{
+	float: left;
+	font-family: Calibri;
+	color: #333333;
+	
+	font-size: 12px;
+	padding-left:1px;
+}
+.Column2
+{
+	float: left;
+	padding-left: 130px;
+	font-family: Calibri;
+	color: #333333;
+	width: 20%;
+	font-size: 12px;
+}
+.photoAboutMe
+{
+	float: left;
+	width: 410px;
+	padding-left: 10px;
+	padding-top: 11px;
+	color: #B1B1B1;
+	font-family: calibri;
+	font-size: 12px;
+	height:70px;
+}
+.MessageSucess
+{
+		
+	font-family: Verdana;
+	color: #66CCFF;
+	width:400px;
+}
+.MessageSucess2
+{
+	
+	font-family: Verdana;
+	color: #FF0000;
+	width: 400px;
+}
+.PhotoName
+{
+	float: left;
+	padding-left: 65px;
+	padding-top: 10PX;
+	width: 120px;
+	font-family: Verdana;
+	color: #000;
+	font-weight: bold;
+	font-size: 12px;
+}
+.PhotoLeftBox
+{
+	float:left;
+	width:210px;
+}
+.ColumnHeader
+{
+	float: left;
+	font-family: Calibri;
+	color: #006F93;
+	font-size: 13px;
+	width: 20%;
+	font-weight: bold;
+}
+.ColumnHeader34
+{
+	float: left;
+	font-family: Calibri;
+	color: #006F93;
+	font-size: 13px;
+	width: 15%;
+	font-weight: bold;
+}
+.LinkUserId
+{
+	font-family: Calibri;
+	color: #006F93;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.AboutMySelf
+{
+	float:left;
+	font-family : Calibri;
+	color: #333333;
+	width: 290px;
+	font-size: 12px;
+	padding-left:5px;
+	padding-top:0px;
+	height:5px;
+}
