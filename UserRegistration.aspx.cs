@@ -25,6 +25,7 @@ public partial class UserRegistration : System.Web.UI.Page
         try
         {
            // DataBindig.BindCast(ddlcast);
+            
             DataBindig.BindEducation(ddlEducation);
             DataBindig.BindFoodDrinkSmoke(rdoDiet, rdoDrink, rdoSmoke);
             DataBindig.BindReligion(ddlReligion);
@@ -41,6 +42,30 @@ public partial class UserRegistration : System.Web.UI.Page
             throw;
         }
     }
+    protected void NewCast()
+    {
+        if (DataBindig.CheckCast(txtOther.Text.Trim()))
+        {
+            if (txtOther.Text == "")
+            {
+                WebMsgBox.Show("Please Enter New Cast");
+                txtOther.Focus();
+            }
+            else if (DataBindig.CheckCast(txtOther.Text.Trim()))
+            {
+                WebMsgBox.Show("New Cast Is Already Exist Please Select From List");
+                txtOther.Visible = false;
+                txtOther.Text = "";
+                txtOther.Focus();
+
+            }
+            else
+            {
+                BALuser.Cast_Id = txtOther.Text.Trim();
+                DataBindig.AddNewCast(txtOther.Text.Trim().ToLowerInvariant(), ddlReligion.SelectedValue);
+            }
+        }
+    }
 
     public void RegisterUser()
     {
@@ -52,7 +77,9 @@ public partial class UserRegistration : System.Web.UI.Page
             BALuser.Profession_Id = ddlProfession.SelectedValue.Trim();
             BALuser.Complexion_Id = ddlComplextion.SelectedValue.Trim();
             BALuser.Body_Type_Code = ddlBodyType.SelectedValue.Trim();
-            BALuser.Cast_Id = ddlcast.SelectedValue.Trim();
+          
+
+           
             BALuser.Comunity_Id = ddlReligion.SelectedValue.Trim();
             BALuser.Food = rdoDiet.SelectedValue.Trim();
             BALuser.Drink = rdoDrink.SelectedValue.Trim();
@@ -77,7 +104,8 @@ public partial class UserRegistration : System.Web.UI.Page
             BALuser.Pin_Code =Convert.ToInt32( txtZip.Text.Trim());
             BALuser.Education = ddlEducation.SelectedValue.Trim();
             BALuser.State = ddlState.SelectedValue;
-
+            BALuser.MaritialStatus = ddlMaritialStatus.SelectedValue;
+            BALuser.CastBar = ddlCastbar.SelectedValue;
             BALuser.RegisterUser_Step2();
             ObjAlbum.CreateAlbumDirectory(Server.MapPath(@"~\ProfileImages\") + Session["uid_gender"].ToString().Split('_')[0], Session["uid_gender"].ToString().Split('_')[0], Session["uid_gender"].ToString().Split('_')[1]);
 
@@ -90,11 +118,28 @@ public partial class UserRegistration : System.Web.UI.Page
         }
     }
 
+    protected void CheckCastAndRegister()
+    {
+        if (ddlcast.SelectedValue == "Others")
+        {
+            NewCast();
+            CheckCastAndRegister();
+        }
+        else
+        {
+            BALuser.Cast_Id = ddlcast.SelectedValue.Trim();
+            RegisterUser();
+        }
+
+
+
+        
+    }
     protected void SendEmail()
     {
         objEmail.To = BALuser.GetEmail();
-        objEmail.Subject = "Welcome To Shaadisagai.com";
-        objEmail.Host = "webmail.shaadisaagai.com";
+        objEmail.Subject = "Welcome To shaadisaagai.com";
+        objEmail.Host = "mail.shaadisaagai.com";
         objEmail.sendTemplateMSg(lblUser.Text +"("+Session["uid_gender"].ToString().Split('_')[0]+")" , Server.MapPath("MSGTemplates\\WelcomeMSG1.txt"), Server.MapPath("MSGTemplates\\WelcomeMSG2.txt"));
         
     }
@@ -120,7 +165,7 @@ public partial class UserRegistration : System.Web.UI.Page
     {
         try
         {
-            RegisterUser();
+            CheckCastAndRegister();
             Response.Redirect("~/User/UserHome.aspx");
         }
         catch (ThreadAbortException exe)
@@ -162,11 +207,25 @@ public partial class UserRegistration : System.Web.UI.Page
         
         try
         {
-            string selectedValue=ddlReligion.SelectedValue.ToString();
-            ddlcast = DataBindig.BindCast(ddlcast, selectedValue);
+            
+            DataBindig.BindCast(ddlcast, ddlReligion.SelectedValue);
         }
         catch(Exception ex)
         {
         }
     }
+    protected void ddlcast_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtOther.Text = "";
+        if (ddlcast.Text == "Others")
+        {
+            txtOther.Visible = true;
+        }
+        else
+        {
+            txtOther.Visible = false;
+        }
+
+    }
+   
 }

@@ -9,9 +9,9 @@
 
     <head runat="server">
 
+    <link rel="shortcut icon"
+ href="images/LogoIcon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywods" content="shaadisaagai.com,shaadisagai.com,shaadisaagai,Best metrimonial site,Rajasthani Metrimonial site,Matrimony, India Matrimonials, Matrimonial Sites, Marriage, Brides,Grooms" />
-<meta name="description" content="Shaadisaagai.com - The No. 1  Indian Matrimonial Website. Trusted by millions of Indian Brides & Grooms globally.  FREE Registration" />
 <title>Shaadi Saagai</title>
 
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -172,23 +172,25 @@ $(document).ready(function(){
     </script>
 </head>
 <body>
+
+
 <div class="lightbox" id="content">
 			<div class="w60p h400 scroll">
 				<h2>ABOUT US</h2>
                 <p>
                 
-Shaadisaagai.com - The No. 1  Indian Matrimonial Website. Trusted by millions of Indian Brides & Grooms globally.  Visit <a href="www.http://shaadisaagai.com">Shaadisaagai.com </a> For Free REGISTRATION
+
 <h3>VISION:</h3>
 The search for a dream match is a blissful journey with ease and the conjugal life thereafter becomes a dream come true fulfilling the wishes blessed by complete happiness.
 
 <h3><br />MISSION: </h3>
-The mission of Shaadisagai.com is to help individuals, parents and guardians find the most suitable match anywhere essentially connecting two souls in a way that it can lead to a fulfilling relationship for leading a happy married life. To enable this we strive to understand the dreams, need and wishes of individuals so that we can help them in finding their most suitable matches with so much ease that this journey of matchmaking process becomes a memorable experience. With the application of most modern and advanced technology, we aspire to make this most friendly and with the use of human touch bringing in warmth and helpfulness in assisting people in their search process maintaining highest quality parameters. Combination of both, we want to be the most reliable, sought after and honest match maker in India.
+The mission of shaadisaagai.com is to help individuals, parents and guardians find the most suitable match anywhere essentially connecting two souls in a way that it can lead to a fulfilling relationship for leading a happy married life. To enable this we strive to understand the dreams, need and wishes of individuals so that we can help them in finding their most suitable matches with so much ease that this journey of matchmaking process becomes a memorable experience. With the application of most modern and advanced technology, we aspire to make this most friendly and with the use of human touch bringing in warmth and helpfulness in assisting people in their search process maintaining highest quality parameters. Combination of both, we want to be the most reliable, sought after and honest match maker in India.
 
 
                 </p>
 				
 			</div>
-		<p class="close"><a href="#" title="Close This Content Lightbox">Close <span>X</span></a></p>
+		<p class="close"><a href="#" title="Close This Content ">Close <span>X</span></a></p>
 		</div>
         <div class="lightbox" id="content1">
 			<div class="w60p h400 scroll">
@@ -196,7 +198,7 @@ The mission of Shaadisagai.com is to help individuals, parents and guardians fin
                 <p>
                
 
-Shaadisagai.com is an online matrimonial portal endeavoring constantly to provide you with premium matrimonial services. This privacy statement is common to all the matrimonial sites operated under Shaadisagai.com Since we are strongly committed to your right to privacy, we have drawn out a privacy statement with regard to the information we collect from you.
+shaadisaagai.com is an online matrimonial portal endeavoring constantly to provide you with premium matrimonial services. This privacy statement is common to all the matrimonial sites operated under shaadisaagai.com Since we are strongly committed to your right to privacy, we have drawn out a privacy statement with regard to the information we collect from you.
 
 We use a secure server for credit card transactions to protect the credit card information of our users and Cookies are used to store the login information.
 
@@ -217,7 +219,7 @@ If you establish a credit account with us to pay the fees we charge, some additi
 <h3>With whom the site shares the information it collects/tracks?</h3>
 <p>The information collected from any of our users is not shared with any individual or organisation without the former's approval.
 
-Shaadisagai.com does not sell, rent, or loan any identifiable information at the individual level regarding its customers to any third party. Any information you give us is held with the utmost care and security. We are also bound to cooperate fully should a situation arise where we are required by law or legal process to provide information about a customer.
+shaadisaagai.com does not sell, rent, or loan any identifiable information at the individual level regarding its customers to any third party. Any information you give us is held with the utmost care and security. We are also bound to cooperate fully should a situation arise where we are required by law or legal process to provide information about a customer.
 </p>
 <h3>Do all visitors have to pay?</h3>
 <p>NO. All visitors to our site may browse the site, search the ads and view any articles or 
@@ -765,7 +767,7 @@ If you have any questions regarding our Privacy Statement, please write in to br
             </tr>
             <tr>
                 <td>
-                    <h5>Cast</h5></td>
+                    <h5>Caste</h5></td>
                 <td>
                 <div id="ddlCastDiv" style="width:100px;" >
                  <asp:DropDownList ID="ddlCast" runat="server" class="txt_field" Width="150px" > 
@@ -826,7 +828,7 @@ If you have any questions regarding our Privacy Statement, please write in to br
 </div>
       </form>     
         
-</div>
+
    <script language="JavaScript" type="text/javascript"
     xml:space="preserve">
        var frmvalidator = new Validator("Form1");
@@ -917,7 +919,7 @@ If you have any questions regarding our Privacy Statement, please write in to br
         
 
 
-        <div class="image_frame_430 float_r">
+        <div class="image_frame_430 float_l">
             <h2>Success Stories</h2>
            
              <table style="width: 100%;">
@@ -927,7 +929,7 @@ If you have any questions regarding our Privacy Statement, please write in to br
                     </td>
                     <td>
                         <h4>Rohan Rajput And Neelam </h4>
-                        <p>Socially Connected Through <strong>Shubh lagan Website</strong> For More<a href="#"> Click Here</a> </p>
+                        <p>Socially Connected Through <strong>ShaadiSaagai.com </strong> For More<a href="#"> Click Here</a> </p>
                     </td>
                  
                 </tr>
@@ -939,34 +941,34 @@ If you have any questions regarding our Privacy Statement, please write in to br
                     </td>
                     <td>
                         <h4>Rohan Rajput And Neelam </h4>
-                        <p>Socially Connected Through <strong>Shubh lagan Website</strong> For More<a href="#"> Click Here</a> </p>
+                        <p>Socially Connected Through <strong>ShaadiSaagai.com </strong> For More<a href="#"> Click Here</a> </p>
                     </td>
                 </tr>
                 
             </table>
         </div>
-        <div class="image_frame_430 float_l">
+        <div class="image_frame_430 float_r">
             
         
         	<h2>Browse Your Match</h2>
         <div class="rp_box">
              <div style="float:right;padding-right:20px;">  <a href="#"><img src="images/templatemo_image_062.png" alt="Image 06" /></a>
-              <div style="float:left;"><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="#">More..</a> </div></div>
+              <div style="float:left;"><strong >Vivek Tiwari</strong> <br />Age:-24<br />Bangalore<br /><a href="SearchResult.aspx">More..</a> </div></div>
               
             	<a href="#"><img src="images/templatemo_image_063.png" alt="Image 06" /></a>
-                <div ><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="#">More..</a> </div>
+                <div ><strong >Nilesh Gupta</strong> <br />Age:-25<br />Chhenai<br /><a href="SearchResult.aspx">More..</a> </div>
              
                 <div class="cleaner"></div>
             </div>
             <div class="rp_box">
              <div style="float:right;padding-right:20px;">  <a href="#"><img src="images/templatemo_image_061.png" alt="Image 06" /></a>
-              <div style="float:left;"><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="#">More..</a> </div></div>
+              <div style="float:left;"><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="SearchResult.aspx">More..</a> </div></div>
               
             	<a href="#"><img src="images/templatemo_image_06.png" alt="Image 06" /></a>
-                <div ><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="#">More..</a> </div>
+                <div ><strong >Sonal Rao</strong> <br />Age:-25<br />Chhenai<br /><a href="SearchResult.aspx">More..</a> </div>
              
                 <div class="cleaner"></div>
-                <br /><div style="float:right;"><input type="submit" class="btnLogin" value="Search More" /></div>
+                <br /><a href="SearchResult.aspx" <div style="float:right;"><input type="submit" class="btnLogin" value="Search More"  /></div>
             </div>
             &nbsp;</div>
         
@@ -1005,7 +1007,7 @@ If you have any questions regarding our Privacy Statement, please write in to br
         <h4><a href="#">Search</a></h4>
         <h4><a href="ContactUs.aspx">Contact Us</a></h4>
 			<h5>Live Suport</h5>
-            <img src="images/livesuprot.png" />
+            <img src="images/livesuprot.png"  alt="Live Saport"/>
             <div class="footer_social_button">
                 <a href="#"><img src="images/facebook-32x32.png" title="facebook" alt="facebook" /></a>
                 <a href="#"><img src="images/flickr-32x32.png" title="flickr" alt="flickr" /></a>
@@ -1016,13 +1018,16 @@ If you have any questions regarding our Privacy Statement, please write in to br
         </div>
         <div class="cleaner"></div>
     </div> <!-- end of footer -->
-</div>
+    </div>
 
 <div id="templatemo_cr_bar_wrapper">
 	<div id="templatemo_cr_bar">
-    	Copyright © 
+    	All rights reserved To shaadisaagai.com
     </div>
 </div>
+
+
+
 
 </body>
 

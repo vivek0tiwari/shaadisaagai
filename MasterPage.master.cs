@@ -12,9 +12,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
    
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Page.Title = "ShaadiSaagai.com";
         if (!IsPostBack )
         {
-           
+            
             if (Request.QueryString["RelID"] != null)
             {
               

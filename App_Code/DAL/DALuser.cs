@@ -200,8 +200,10 @@ public class DALuser:DbManager
 
                 com.Parameters.AddWithValue("@Rasi", user.Rashi);
                 com.Parameters.AddWithValue("@Star", user.Star);
+                 com.Parameters.AddWithValue("@CastBar", user.CastBar);
+                com.Parameters.AddWithValue("@MaritialStatus", user.MaritialStatus);
                 
-
+           
             
 
                 com.CommandType = System.Data.CommandType.StoredProcedure;

@@ -38,13 +38,13 @@
         <!--WHITE TEXT AREA-->
         <td width="131" bgcolor="#FFFFFF" style="border-top:1px solid #FFF; text-align:center;" height="113" valign="middle">
           <span style="font-size:25px; font-family:Trebuchet MS, Verdana, Arial; color:#2e8a3b;">
-           <H1>Shaadisagai.com</H1>
+           <H1>shaadisaagai.com</H1>
           </span>
         </td>
 
         <!--GREEN TEXT AREA-->
         <td background="images/greenback.gif" bgcolor="#45a853" style="border-top:1px solid #FFF; border-bottom:1px solid #FFF; padding-left:15px;" height="113">
-          <span style="color:#FFFFFF; font-size:18px; font-family:Trebuchet MS, Verdana, Arial;">Thank you for Register With Shaadisagai.com.</span>
+          <span style="color:#FFFFFF; font-size:18px; font-family:Trebuchet MS, Verdana, Arial;">Thank you for Register With shaadisaagai.com.</span>
         </td>
       </tr>
 

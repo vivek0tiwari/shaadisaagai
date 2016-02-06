@@ -323,7 +323,7 @@ cursor: pointer;
        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Cast_Name")%>'></asp:Label>
         </td>
        <td class="Header">Religion&nbsp;</td><td colspan=3>
-         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Comunity_Name")%>'></asp:Label>
+         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Religion")%>'></asp:Label>
 </tr>
     <tr >
         <td class="Header" width="200">Rasi&nbsp;</td><td>
@@ -338,6 +338,45 @@ cursor: pointer;
            <td class="Header">Dosham</td><td td>
            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Dosham")%>'></asp:Label>
         </td></tr>
+    </table>
+      
+      </div>
+            </ItemTemplate>
+    </asp:FormView>
+   </div>
+    <div class="cleaner" id="Div5" ></div>
+    <div class="sidebarheading">
+      
+  Education And Career</div>
+    
+   <div class="slidebarcontent content">
+    <asp:FormView ID="FVEducation" runat="server" BackColor="White"  >
+       
+        <EditRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+        <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+        <HeaderStyle CssClass="ColumnHeader" Font-Bold="True" ForeColor="#CCCCFF" />
+        <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+        <RowStyle CssClass="Column" ForeColor="#003399" />
+            <ItemTemplate>
+
+    <div class="content">
+  
+    <table style="border:0px;width:100%;table-layout:auto"  >
+    <tr >
+        <td class="Header" width="200">Qualification&nbsp;</td><td>
+       <asp:Label ID="Label2" runat="server" Text='<%# Eval("Education")%>'></asp:Label>
+        </td>
+       <td class="Header">Anual&nbsp;Incom&nbsp;</td><td colspan=3>
+         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Anual_Incom")%>'></asp:Label>&nbsp;<span class="WebRupee">&#x20B9;</span>
+</tr>
+    <tr >
+        <td class="Header" width="200">Profession&nbsp;</td><td>
+       <asp:Label ID="lblState" runat="server" Text='<%# Eval("Profession_Id")%>'></asp:Label>
+        </td>
+       <td class="Header">Occupation&nbsp;</td><td colspan=3>
+         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Occupation")%>'></asp:Label>
+</tr>
+
     </table>
       
       </div>

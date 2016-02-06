@@ -65,7 +65,6 @@ public class EmailMsg
         mail.IsBodyHtml = true;
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "shaadisaagai.com";
-        smtp.EnableSsl = false;
         
         smtp.Credentials = new System.Net.NetworkCredential("admin@shaadisaagai.com", "9468647621");
         smtp.Send(mail);                                                //brajmohan123

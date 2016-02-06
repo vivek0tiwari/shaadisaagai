@@ -109,8 +109,8 @@ public partial class tmp : System.Web.UI.Page
     protected void Button1_Click1(object sender, EventArgs e)
     {
         objEmail.To = "vivektiwari97701@gmail.com";
-        objEmail.Subject = "Welcome To Shaadisagai.com";
-        objEmail.Host = "smtp.shaadisaagai.com";
+        objEmail.Subject = "Welcome To shaadisaagai.com";
+        objEmail.Host = "mail.shaadisaagai.com";
         objEmail.sendTemplateMSg("Vivek Tiwari", Server.MapPath("MSGTemplates\\WelcomeMSG1.txt"), Server.MapPath("MSGTemplates\\WelcomeMSG2.txt"));
         ucMessage.ShowMessage(Message.Text.SUCCESS_SERVER, Message.Type.success.ToString());
     }

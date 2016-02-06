@@ -10,10 +10,11 @@ public partial class ContactUs : System.Web.UI.Page
     EmailMsg objEmail = new EmailMsg();
     protected void SendEmail()
     {
-        objEmail.To = txtEmail.Text.Trim();
-        objEmail.Subject = "Contact Request From "+txtEmail.Text+"("+txtUserId+ ")";
-        objEmail.Host = "webmail.shaadisaagai.com";
+        objEmail.To = "info@shaadisaagai.com";
+        objEmail.Subject = "Contact Request From <br/>"+txtEmail.Text+"("+txtUserId+ ")";
+        objEmail.Host = "mail.shaadisaagai.com";
         objEmail.Body = txtMoNo.Text + txtEmail.Text;
+        objEmail.SendEmail();
 
     }
  
@@ -36,6 +37,6 @@ public partial class ContactUs : System.Web.UI.Page
     }
     protected void btnCancle_Click(object sender, EventArgs e)
     {
-
+        Server.Transfer("Default.aspx");
     }
 }

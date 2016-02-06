@@ -1,28 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/MasterPage.master" AutoEventWireup="true" CodeFile="UpdateProfile.aspx.cs" Inherits="User_UpdateProfile" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register Src="~/User_Control/Message.ascx" TagName="Message" TagPrefix="uc" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<style type="text/css">
+ .Header
+    {
+        color:#4a9ac3;
+        font-weight:bold;
+        width:50%;
+        table-layout:fixed;
+    }
+    .EditHeader
+    {
+        color:#ababab;
+        font-weight:bold;
+        width:50%;
+        table-layout:fixed;
+    }
+    </style>
+    <script src="../js/gen_validatorv4.js" type="text/javascript"></script>
+       <script src="../App_Themes/Default/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../App_Themes/Default/js/jquery.ui.effect.js" type="text/javascript"></script>
+   
+    <link href="../App_Themes/Default/css/layout.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <script type="text/javascript">
 
-    <script type="text/javascript">
-
-         
-
-    </script>
+ <uc:message ID="ucMessage" runat="server" />
+  
     <h2>Upadate Profile</h2>
 
-    <asp:UpdateProgress ID="UpdateProgress2" runat="server" DisplayAfter="0" AssociatedUpdatePanelID="UpdatePanel1">
-            <ProgressTemplate>
-              <div align="center"><br />
-                <img src="../images/ajax-loader.gif" alt="loading" title="loading" />
-                Processing ... <br />                                
-              </div>
-          </ProgressTemplate>
-       </asp:UpdateProgress>
+    
        
    <div class="sidebar1" >
     <div class="sidebarheading">
@@ -38,20 +50,20 @@
     
                          
                            
-         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+     
+      
             <asp:DetailsView ID="DVPersionalDetail" runat="server"  class="detailview"
-                 AutoGenerateRows="False" 
+                 AutoGenerateRows="False"  Width="750px"
                 onmodechanging="DVPersionalDetail_ModeChanging" 
                 onitemupdating="DVPersionalDetail_ItemUpdating" 
                 ondatabound="DVPersionalDetail_DataBound" CellPadding="3" 
                 GridLines="Horizontal" BackColor="White" BorderColor="#E7E7FF" 
-                BorderStyle="None" BorderWidth="1px">
-                <AlternatingRowStyle BackColor="#F7F7F7" />
-                <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                BorderStyle="None" BorderWidth="1px"  FieldHeaderStyle-CssClass="Header" >
+                <AlternatingRowStyle BackColor="#F7F7F7"  />
+                <EditRowStyle BackColor="#dfdff9" Font-Bold="True" ForeColor="#F7F7F7" CssClass="EditHeader" />
                 <Fields>
-                    <asp:TemplateField HeaderText="About My Patner" >
-                        <EditItemTemplate>
+                    <asp:TemplateField HeaderText="About My Patner"  >
+                        <EditItemTemplate >
                             <asp:TextBox ID="txtAboutMyPatner" runat="server" Text='<%# Bind("About_My_Patner") %>' class="textarea" TextMode="MultiLine"></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
@@ -223,7 +235,7 @@
                              
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Physical Status">
+                    <asp:TemplateField HeaderText="Physical Status" >
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddlPhysicleStatus" runat="server" class="select" SelectedValue='<%# Bind("Physical_Status") %>'>
                 <asp:ListItem>Select</asp:ListItem>
@@ -283,7 +295,7 @@
 
             
        
-         </div>  
+          
          <script language="javascript" type="text/javascript">
              function ValidatePersionalDetail() {
                  var frmvalidator = new Validator("aspnetForm");
@@ -340,15 +352,15 @@
        
     Physical Info And Other</div>
          <asp:DetailsView ID="DVPhysicalDetail" runat="server" BackColor="White" class="detailview"
-                CellPadding="3" 
+                CellPadding="3" Width="750px"
                  GridLines="Horizontal"  BorderColor="#E7E7FF" 
                 BorderStyle="None" BorderWidth="1px" 
                 AutoGenerateRows="False" onmodechanging="DVPhysicalDetail_ModeChanging" 
                 onpageindexchanging="DVPhysicalDetail_PageIndexChanging" 
                 ondatabound="DVPhysicalDetail_DataBound" 
-                onitemupdating="DVPhysicalDetail_ItemUpdating" >
-                <AlternatingRowStyle BackColor="#F7F7F7" /> 
-             <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                onitemupdating="DVPhysicalDetail_ItemUpdating" FieldHeaderStyle-CssClass="Header" >
+                <AlternatingRowStyle BackColor="#F7F7F7"  /> 
+             <EditRowStyle BackColor="#dfdff9" Font-Bold="True" ForeColor="White" />
                 <Fields>
                     <asp:TemplateField HeaderText="Body Type ">
                         <EditItemTemplate>
@@ -464,29 +476,233 @@
             <div class="sidebarheading">
        
     Religious</div>
-            <asp:DetailsView ID="DVReligion" runat="server" class="detailview" 
+            <asp:DetailsView ID="DVReligion" runat="server" class="detailview" Width="750px"
                 BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" 
-                CellPadding="3" GridLines="Horizontal" AutoGenerateRows="False">
+                CellPadding="3" GridLines="Horizontal" AutoGenerateRows="False" 
+           onmodechanging="DVReligion_ModeChanging" 
+           ondatabound="DVReligion_DataBound" onitemupdating="DVReligion_ItemUpdating" FieldHeaderStyle-CssClass="Header">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
-                <EditRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <EditRowStyle BackColor="#dfdff9" Font-Bold="True" ForeColor="#F7F7F7" />
+
+                <FieldHeaderStyle CssClass="Header"></FieldHeaderStyle>
                 <Fields>
-                    <asp:BoundField DataField="Comunity_Name" HeaderText="Religion" />
-                    <asp:BoundField DataField="Cast_Name" HeaderText="Cast" />
-                    <asp:BoundField DataField="Rashi_Name" HeaderText="Rasi" />
-                    <asp:BoundField DataField="Gothram" HeaderText="Gothram" />
-                    <asp:BoundField DataField="Star_Name" HeaderText="Star" />
-                    <asp:BoundField DataField="Dosham" HeaderText="Dosham" />
-                    <asp:CommandField ShowEditButton="True" />
+                    <asp:TemplateField HeaderText="Religion">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlReligion" runat="server" AutoPostBack="True" 
+                                onselectedindexchanged="ddlReligion_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Religion") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Religion") %>'></asp:Label>
+                             <asp:Label ID="Label73" runat="server" Text='<%# Bind("Religion_Id") %>' Visible=false></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cast">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlCast" runat="server" 
+                                onselectedindexchanged="ddlCast_SelectedIndexChanged" AutoPostBack="True">
+                            </asp:DropDownList> 
+                            <asp:TextBox ID="txtCastOther" runat="server" Visible=false  ></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Cast_Name") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Cast_Name") %>'></asp:Label>
+                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("Cast_Id") %>' Visible=false></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Rasi">
+                        <EditItemTemplate>
+                             <asp:DropDownList ID="ddlRashi" runat="server">
+                            </asp:DropDownList>
+                            
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Rashi_Name") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Rashi_Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Gothram">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtGothram" runat="server" Text='<%# Bind("Gothram") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Gothram") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Gothram") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Star">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlStar" runat="server">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Star_Name") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Star_Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dosham">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDosham" runat="server" Text='<%# Bind("Dosham") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Dosham") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Dosham") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" 
+                                CommandName="Update" Text="Update" class="btnLogin Blacktext" OnClientClick="ValidateReligion();"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" 
+                                CommandName="Cancel" Text="Cancel" class="btnLogin Blacktext"></asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Button ID="Button1" runat="server" CausesValidation="False" 
+                                CommandName="Edit" Text="Edit" class="btnLogin Blacktext"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Fields>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                 <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
                 <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
        </asp:DetailsView>
-            </ContentTemplate>
+          
+          <script type="text/javascript">
 
-    </asp:UpdatePanel>
+                 
+              
+              function ValidateReligionForm() {
+                  var frmvalidator = new Validator("aspnetForm");
+                  frmvalidator.clearAllValidations();
+                  frmvalidator.EnableMsgsTogether();
+                  
+                  
+                  frmvalidator.addValidation("ctl00_ContentPlaceHolder1_DVReligion_ddlReligion", "dontselect=Select", "Please Select Religion");
+                  frmvalidator.addValidation("ctl00_ContentPlaceHolder1_DVReligion_ddlCast", "dontselect=Select", "Please Select Cast");
+                 // frmvalidator.setAddnlValidationFunction(DoCustomValidation);
+
+              }
+          </script>
+
+
+          
+            <div class="sidebarheading">
        
+    Education And Career Details</div>
+            <asp:DetailsView ID="DVEducation" runat="server" class="detailview" Width="750px"
+                BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" 
+                CellPadding="3" GridLines="Horizontal" AutoGenerateRows="False" 
+           FieldHeaderStyle-CssClass="Header" ondatabinding="DVEducation_DataBinding" 
+           onmodechanging="DVEducation_ModeChanging" 
+           ondatabound="DVEducation_DataBound" 
+           onitemupdating="DVEducation_ItemUpdating">
+                <AlternatingRowStyle BackColor="#F7F7F7" />
+                <EditRowStyle BackColor="#dfdff9" Font-Bold="True" ForeColor="#F7F7F7" />
+
+                <FieldHeaderStyle CssClass="Header"></FieldHeaderStyle>
+                <Fields>
+                    <asp:TemplateField HeaderText="Qualification">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlEducation" runat="server"  
+                               >
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Education") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Education") %>'></asp:Label>
+                             <asp:Label ID="Label73" runat="server" Text='<%# Bind("Educational_Qualification") %>' Visible=false></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Anual Incom">
+                        <EditItemTemplate>
+                          <asp:DropDownList ID="ddlIncome" runat="server" class="select">
+               <asp:ListItem Value="Select"></asp:ListItem>
+               <asp:ListItem Value="&lt;1,00,000"></asp:ListItem>
+               <asp:ListItem Value="1,00,000-1,50,000"></asp:ListItem>
+               <asp:ListItem Value="1,50,000-2,00,000"></asp:ListItem>
+               <asp:ListItem Value="2,00,000-2,50,000"></asp:ListItem>
+               <asp:ListItem Value="2,50,000-3,00,000"></asp:ListItem>
+               <asp:ListItem Value="3,00,000-4,00,000"></asp:ListItem>
+               <asp:ListItem Value="4,00,000-5,00,000"></asp:ListItem>
+               <asp:ListItem Value="5,00,000-6,00,000"></asp:ListItem>
+               <asp:ListItem Value="6,00,000-7,00,000"></asp:ListItem>
+               <asp:ListItem Value="7,00,000-8,00,000"></asp:ListItem>
+               <asp:ListItem Value="8,00,000-9,00,000"></asp:ListItem>
+               <asp:ListItem Value="&gt;9,00,000"></asp:ListItem>
+            </asp:DropDownList>
+                         
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Anual_Incom") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Anual_Incom") %>'></asp:Label>
+                            
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Profession">
+                        <EditItemTemplate>
+                             <asp:DropDownList ID="ddlProfession" runat="server">
+                            </asp:DropDownList>
+                            
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Profession_Id") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Profession_Id") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Occupation">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtoccupation" runat="server" Text='<%# Bind("Occupation") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Occupation") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Occupation") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    
+                    
+                    <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" 
+                                CommandName="Update" Text="Update" class="btnLogin Blacktext" ></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" 
+                                CommandName="Cancel" Text="Cancel" class="btnLogin Blacktext"></asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Button ID="Button1" runat="server" CausesValidation="False" 
+                                CommandName="Edit" Text="Edit" class="btnLogin Blacktext"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Fields>
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+       </asp:DetailsView>
+          
+  
+       </div> 
    
    
     

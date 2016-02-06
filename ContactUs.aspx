@@ -1,34 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<title>Contact Us</title>
+    <title>Contact Us</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <div class="sidebar1" >
+    
+    <div class="sidebar1" >
          
     <div class="sidebarheading">
        
-  ContaContact Us 
+  Contact Us 
         
 
-   </div><br />
+   </div> <asp:ScriptManager ID="ScriptManager1" runat="server">
+      </asp:ScriptManager>
 <div class="image_frame_964" style=" Width:720px; padding:10px 15px 15px 15px; margin:0px 0 15px 10px;margin-top:-38px;height:auto" >
      
-
+     <br />
   <table style="width: 100%;">
+     
             <tr>
                
                 <td>
-                    <asp:ScriptManager ID="ScriptManager1" runat="server">
-                    </asp:ScriptManager>
-                </td>
-                <td>
                     &nbsp;</td>
+                <td>
+                    <br /></td>
             </tr>
             <tr>
                
                 <td>
-                   <h5> Name</td>
+                   <h5> Name</h5></td>
                 <td>
                     <asp:TextBox ID="txtUserId" runat="server" class="textbox" MaxLength="9"></asp:TextBox></td>
            
@@ -125,23 +126,24 @@
       
        
        </div>
+       </div>
   <script language="JavaScript" type="text/javascript"
     xml:space="preserve">
 
       function ValidateForm() {
-          var frmvalidator = new Validator("form1");
+          var frmvalidator = new Validator("aspnetForm");
 
           //PERSONAL DETAIL
 
           //About Me 
           frmvalidator.EnableMsgsTogether();
-          frmvalidator.addValidation("txtUserId", "req", "Please Insert Your Name");
-          frmvalidator.addValidation("txtMoNo", "req", "Invalid Mobile  No.");
-          frmvalidator.addValidation("txtMoNo", "minlen=10", "Invalid Mobile  No.");
-          frmvalidator.addValidation("txtEmail", "req", "Please Enter Email");
-          frmvalidator.addValidation("txtEmail", "email", "Please Enter Email");
-          frmvalidator.addValidation("txtCity", "req", "Please Enter Your Location ");
-          frmvalidator.addValidation("TextBox1", "req", "Please Enter Your Query ");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtUserId", "req", "Please Insert Your Name");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtMoNo", "req", "Invalid Mobile  No.");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtMoNo", "minlen=10", "Invalid Mobile  No.");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtEmail", "req", "Please Enter Email");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtEmail", "email", "Please Enter Email");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtCity", "req", "Please Enter Your Location ");
+          frmvalidator.addValidation("ctl00_ContentPlaceHolder1_TextBox1", "req", "Please Enter Your Query ");
 
           
 
@@ -159,5 +161,6 @@
 
       }
            </script>
+   
 </asp:Content>
 

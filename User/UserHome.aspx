@@ -23,12 +23,18 @@
       <span style="width: 80%;" class="orange"><span>80%</span></span>
     </div></section></td></tr>
     <tr><td>Last Login Date<br />
-        <asp:Label ID="lbLastLoginDate" runat="server" Text="" class="Lable"></asp:Label></td><td>Edit/Verify My Mobile No.</td></tr>
+        <asp:Label ID="lbLastLoginDate" runat="server" Text="" class="Lable"></asp:Label></td><td>
+          <a href="UpdateProfile.aspx">  <img src="../images/UpdateProfileButton.png" alt="Update Profile" /></a></td></tr>
     <tr><td>Membership Plane
     <br />
         <asp:Label ID="lblPlane" runat="server" Text="" class="Lable"></asp:Label>
-    </td><td>Edit/Verify My Email ID</td></tr>
-    <tr><td><a class="button green" href="UpdateMembership.aspx" >Upgarde Membership</a></td></tr>
+    </td><td><a href="#">  <img src="../images/VerifyEmail.png" alt="Update Profile" /></a></td>
+  
+    
+    </tr>
+    <tr><td><a class="button green" href="UpdateMembership.aspx" >Upgarde Membership</a></td>
+      <td><a href="#">  <img src="../images/VerifyMobile.png" alt="Update Profile" /></a></td>
+    </tr>
 
 
     

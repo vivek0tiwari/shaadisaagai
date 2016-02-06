@@ -71,11 +71,10 @@ public class DALProfile
             com.Parameters.AddWithValue("@Profession_Id", user.Profession_Id);
             com.Parameters.AddWithValue("@Anual_Incom", user.Anual_Incom);
             com.Parameters.AddWithValue("@Educational_Qualification", user.Education);
-
             com.Parameters.AddWithValue("@Gender", user.Gender);
 
-            com.CommandType = System.Data.CommandType.StoredProcedure;
             DbManager.Open();
+            com.ExecuteNonQuery();
             return Convert.ToBoolean(com.ExecuteNonQuery());
 
         }
@@ -202,24 +201,29 @@ public class DALProfile
         {
             SqlCommand com = new SqlCommand();
             com.Connection = DbManager.Con;
+          
             com.CommandType = CommandType.StoredProcedure;
             com.CommandText = "SP_Update_Religious_Information";
 
 
 
-            com.Parameters.AddWithValue("@Bride_Id", user.Id);
-            com.Parameters.AddWithValue("@Groom_Id", user.Id);
+            com.Parameters.AddWithValue("@Bride_Id",Convert.ToInt32( user.Id));
+            com.Parameters.AddWithValue("@Groom_Id", Convert.ToInt32(user.Id));
 
             com.Parameters.AddWithValue("@Dosham", user.Dosham);
             com.Parameters.AddWithValue("@Gothram", user.Gothram);
             com.Parameters.AddWithValue("@Cast_Id", user.Cast_Id);
-            com.Parameters.AddWithValue("@Comunity_Id", user.Comunity_Id);
+            com.Parameters.AddWithValue("@Religion", user.Comunity_Id);
+            com.Parameters.AddWithValue("@Rasi", user.Rashi);
+            com.Parameters.AddWithValue("@Star", user.Star);
 
 
             com.Parameters.AddWithValue("@Gender", user.Gender);
 
-            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+
             DbManager.Open();
+            com.ExecuteNonQuery();
             return Convert.ToBoolean(com.ExecuteNonQuery());
 
         }

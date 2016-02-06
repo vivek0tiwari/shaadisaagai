@@ -259,13 +259,35 @@ FileInfo[] fileSizes =
         try
         {
 
-           
-             
 
+
+            string rtnval;
                 Dictionary<string, string> Param = new Dictionary<string, string>();
                 Param.Add("@MemberId", MemberId);
                 DataSet ds= DbManager.GetDataSetSP("SP_Select_Album", Param);
-                return  ds.Tables[0].Rows[0]["ProfilePhoto"].ToString();
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    string Gender;
+                    
+                    if(MemberId.Substring(3,1)=="M")
+                    {
+                        Gender="Male";
+                    }
+                    else
+                    {
+                        Gender="Female";
+                    }
+                    this.CreateAlbumDirectory(MemberId,MemberId,Gender);
+                     Dictionary<string, string> Param1 = new Dictionary<string, string>();
+                Param1.Add("@MemberId", MemberId);
+                DataSet ds1= DbManager.GetDataSetSP("SP_Select_Album", Param1);
+                    rtnval= ds1.Tables[0].Rows[0]["ProfilePhoto"].ToString();
+                }
+                else
+                {
+                    rtnval= ds.Tables[0].Rows[0]["ProfilePhoto"].ToString();
+                }
+                return rtnval;
 
               
 

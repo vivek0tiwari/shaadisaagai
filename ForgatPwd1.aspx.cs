@@ -14,8 +14,8 @@ public partial class ForgatPwd1 : System.Web.UI.Page
     {
         objBal=ObjDal.GetDetail(objBal);
         objEmail.To = txtEmail1.Text.Trim();
-        objEmail.Subject = "Password From Shaadisagai.com";
-        objEmail.Host = "webmail.shaadisaagai.com";
+        objEmail.Subject = "Password From shaadisaagai.com";
+        objEmail.Host = "shaadisaagai.com";
         objEmail.sendTemplateMSg("<br>UserID :- <b>" + objBal.User_Id + "</b> <br>Password :-<b>" + objBal.Password+"</b>", Server.MapPath("MSGTemplates\\WelcomeMSG1.txt"), Server.MapPath("MSGTemplates\\WelcomeMSG2.txt"));
 
     }

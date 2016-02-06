@@ -6,18 +6,30 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Collections;
+using Helper;
 public partial class User_UpdateProfile : System.Web.UI.Page
 {
     UserDetails BAL = new UserDetails();
     DALProfile DalProfile = new DALProfile();
     DataSet ds = new DataSet();
 
+
+    protected void WebMSG(bool Fctn)
+    {
+        if (Fctn)
+            ucMessage.ShowMessage("Your Profile Updated", WebMsgBox.Type.success.ToString());
+        else
+            ucMessage.ShowMessage("Please Try Again ", WebMsgBox.Type.success.ToString());
+        
+    }
+
     private void LoadDet()
     {
 
         LoadPersionalDetail();
         LoadPhysicallDetail();
+        LoadEducation();
         LoadReligion();
     }
     private void LoadPersionalDetail()
@@ -35,11 +47,15 @@ public partial class User_UpdateProfile : System.Web.UI.Page
 
         DVPhysicalDetail.DataBind();
     }
-
     private void LoadReligion()
     {
         DVReligion.DataSource = BAL.SelectReligiousDetail();
         DVReligion.DataBind();
+    }
+    private void LoadEducation()
+    {
+        DVEducation.DataSource = BAL.SelectEducationDetails();
+        DVEducation.DataBind();
     }
 
 
@@ -90,9 +106,12 @@ public partial class User_UpdateProfile : System.Web.UI.Page
         //DbManager.Open();
         //WebMsgBox.Show( com.ExecuteNonQuery().ToString());
 
-        WebMsgBox.Show(DalProfile.UpdatePersionalDetail(BAL).ToString());
-        LoadPersionalDetail();
+        WebMSG(DalProfile.UpdatePersionalDetail(BAL));
+        
+        
+
         DVPersionalDetail.ChangeMode(DetailsViewMode.ReadOnly);
+        LoadPersionalDetail();
      //   System.Threading.Thread.Sleep(3000);
         
 
@@ -161,9 +180,175 @@ public partial class User_UpdateProfile : System.Web.UI.Page
         //DbManager.Open();
         //WebMsgBox.Show( com.ExecuteNonQuery().ToString());
 
-        WebMsgBox.Show(DalProfile.UpdatePhysicalDetail(BAL).ToString());
-        LoadPhysicallDetail();
+        WebMSG(DalProfile.UpdatePhysicalDetail(BAL));
+       
         DVPhysicalDetail.ChangeMode(DetailsViewMode.ReadOnly);
+        LoadPhysicallDetail();
+    }
+   
+    protected void DVReligion_ModeChanging(object sender, DetailsViewModeEventArgs e)
+    {
+        DVReligion.ChangeMode(e.NewMode);
+        LoadReligion();
+    }
+    protected void DVReligion_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    {
       
+        DataRowView row = (DataRowView)((DetailsView)sender).DataItem;
+        DropDownList ddlReligion = (DropDownList)((DetailsView)sender).FindControl("ddlReligion");
+        DropDownList ddlCast = (DropDownList)((DetailsView)sender).FindControl("ddlCast");
+        DropDownList ddlRashi = (DropDownList)((DetailsView)sender).FindControl("ddlRashi");
+        DropDownList ddlStar = (DropDownList)((DetailsView)sender).FindControl("ddlStar");
+        TextBox txtCastOther1 = DVReligion.Rows[1].Cells[1].Controls[3] as TextBox;
+        TextBox txtCastOther = (TextBox)((DetailsView)sender).FindControl("txtCastOther");
+        TextBox txtDosham = (TextBox)((DetailsView)sender).FindControl("txtDosham");
+        TextBox txtGothram = (TextBox)((DetailsView)sender).FindControl("txtGothram");
+        BAL.Comunity_Id = ddlReligion.SelectedValue;
+        BAL.Star = ddlStar.SelectedValue;
+        BAL.Rashi = ddlRashi.SelectedValue;
+        BAL.Dosham = txtDosham.Text.Trim();
+        BAL.Gothram = txtGothram.Text.Trim();
+        BAL.Gender = Session["uid_gender"].ToString().Split('_')[1];
+        BAL.Id = Session["Bride_groom_Id"].ToString();
+
+        if (ddlCast.SelectedValue == "Others" )
+        {
+            if (txtCastOther.Text == "")
+            {
+                WebMsgBox.Show("Please Enter New Cast");
+                txtCastOther.Focus();
+            }
+            else if (DataBindig.CheckCast(txtCastOther.Text.Trim()))
+            {
+                WebMsgBox.Show("New Cast Is Already Exist Please Select From List");
+                txtCastOther.Visible = false;
+                txtCastOther.Text = "";
+                ddlCast.Focus();
+                
+            }
+            else
+            {
+                BAL.Cast_Id = txtCastOther.Text.Trim();
+                DataBindig.AddNewCast(txtCastOther.Text.Trim().ToLowerInvariant(), ddlReligion.SelectedValue);
+                WebMSG(DalProfile.UpdateReligiousDetail(BAL));
+                
+                DVReligion.ChangeMode(DetailsViewMode.ReadOnly);
+                LoadReligion();
+            }
+        }
+        else
+        {
+            BAL.Cast_Id = ddlCast.SelectedValue;
+            WebMSG(DalProfile.UpdateReligiousDetail(BAL));
+
+            DVReligion.ChangeMode(DetailsViewMode.ReadOnly);
+            LoadReligion();
+        }
+    
+        
+        
+       
+    }
+    protected void DVReligion_DataBound(object sender, EventArgs e)
+    {
+        if (((DetailsView)sender).CurrentMode == DetailsViewMode.Edit)
+        {
+           
+       
+
+
+
+
+            DataRowView row = (DataRowView)((DetailsView)sender).DataItem;
+            DropDownList ddlReligion = (DropDownList)((DetailsView)sender).FindControl("ddlReligion");
+            DropDownList ddlCast = (DropDownList)((DetailsView)sender).FindControl("ddlCast");
+            DropDownList ddlRashi = (DropDownList)((DetailsView)sender).FindControl("ddlRashi");
+            DropDownList ddlStar = (DropDownList)((DetailsView)sender).FindControl("ddlStar");
+            TextBox txtCastOther = (TextBox)((DetailsView)sender).FindControl("txtCastOther");
+           
+//            string javascript = "if (this.options[this.selectedIndex].value =='Others')" +
+//"{document.getElementById('" +txtCastOther.ClientID+
+//"').style.visibility='visible'} else{document.getElementById('" + txtCastOther.ClientID + "').style.visibility='hidden'};";
+
+            DataBindig.BindReligion(ddlReligion);
+            DataBindig.BindStar(ddlStar);
+            DataBindig.BindRashi(ddlRashi);
+            ddlStar.SelectedValue = row["Star_Id"].ToString();
+            ddlRashi.SelectedValue = row["Rashi_Id"].ToString();
+            ddlReligion.SelectedValue = row["Religion_Id"].ToString();
+            DataBindig.BindCast(ddlCast);
+          //  ddlCast.Attributes.Add("onchange", javascript);
+            ddlCast.SelectedValue = row["Cast_Id"].ToString();
+
+        }
+    }
+    protected void ddlReligion_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DataRowView row = (DataRowView)DVReligion.DataItem;
+        DropDownList ddlReligion = (DropDownList)DVReligion.FindControl("ddlReligion");
+        DropDownList ddlCast = (DropDownList)DVReligion.FindControl("ddlCast");
+        DataBindig.BindCast(ddlCast, ddlReligion.SelectedValue);
+    }
+    protected void ddlCast_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ((TextBox)DVReligion.FindControl("txtCastOther")).Text = "";
+        if (((DropDownList)DVReligion.FindControl("ddlCast")).SelectedValue == "Others")
+        {
+
+            ((TextBox)DVReligion.FindControl("txtCastOther")).Visible = true;
+        }
+        else
+        {
+            ((TextBox)DVReligion.FindControl("txtCastOther")).Visible = false;
+        }
+    }
+    protected void DVEducation_ModeChanging(object sender, DetailsViewModeEventArgs e)
+    {
+
+        DVEducation.ChangeMode(e.NewMode);
+        LoadEducation();
+    }
+    protected void DVEducation_DataBinding(object sender, EventArgs e)
+    {
+       
+    }
+    protected void DVEducation_DataBound(object sender, EventArgs e)
+    {
+        if (((DetailsView)sender).CurrentMode == DetailsViewMode.Edit)
+        {
+            DataRowView row = (DataRowView)((DetailsView)sender).DataItem;
+
+
+
+
+            DropDownList ddlProfession = (DropDownList)((DetailsView)sender).FindControl("ddlProfession");
+            DropDownList ddlIncome = (DropDownList)((DetailsView)sender).FindControl("ddlIncome");
+            DropDownList ddlEducation = (DropDownList)((DetailsView)sender).FindControl("ddlEducation");
+            DataBindig.BindEducation(ddlEducation);
+            ddlEducation.SelectedValue = row["Educational_Qualification"].ToString();
+            DataBindig.BindProfession(ddlProfession);
+            ddlProfession.SelectedValue = row["Profession_Id"].ToString();
+            ddlIncome.SelectedValue = row["Anual_Incom"].ToString();
+
+
+        }
+    }
+    protected void DVEducation_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    {
+        DataRowView row = (DataRowView)((DetailsView)sender).DataItem;
+        DropDownList ddlProfession = (DropDownList)((DetailsView)sender).FindControl("ddlProfession");
+        DropDownList ddlIncome = (DropDownList)((DetailsView)sender).FindControl("ddlIncome");
+        DropDownList ddlEducation = (DropDownList)((DetailsView)sender).FindControl("ddlEducation");
+        TextBox txtoccupation = (TextBox)((DetailsView)sender).FindControl("txtoccupation");
+        BAL.Profession_Id = ddlProfession.SelectedValue;
+        BAL.Anual_Incom = ddlIncome.SelectedValue;
+        BAL.Education = ddlEducation.SelectedValue;
+        BAL.Occupation = txtoccupation.Text.Trim();
+        BAL.Gender = Session["uid_gender"].ToString().Split('_')[1];
+        BAL.Id = Session["Bride_groom_Id"].ToString();
+        
+        WebMSG(DalProfile.UpdateEducationlDetail(BAL));
+        DVEducation.ChangeMode(DetailsViewMode.ReadOnly);
+        LoadEducation();
     }
 }

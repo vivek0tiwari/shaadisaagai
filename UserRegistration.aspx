@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shadi Sagai </title>
+<title>Shaadi Saagai </title>
      <link href="css/Controls.css" rel="stylesheet" type="text/css" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 
@@ -102,10 +102,10 @@
    <div class="lightbox" id="content">
 			<div class="w60p h400 scroll">
 		<h2>TERMS & CONDITIONS</h2>
-<h3>Shaadisagai.com</h3>
+<h3>shaadisaagai.com</h3>
 <h3>DEAR USER: </h3>
 
-<h3>Welcome to Shaadisagai.com</h3>
+<h3>Welcome to shaadisaagai.com</h3>
 
 <p>Shaadisagai and its affiliates provide their services to you subject to the following terms and conditions. On your visit or signing up at Shaadisagai, you consciously accept the terms and conditions as set out here in below. In addition, when you use or visit any current or future Shaadisagai service or any business affiliated with Shaadisagai, whether or not included in the Shaadisagai Web site, you will also be subject to the guidelines and conditions applicable to such service or business. Please read the various services provided by Shaadisagai before making any payment in respect of any service. </p>
 
@@ -308,7 +308,12 @@
         </tr>
         <tr><td>About My Partner<font class="RedFont" >*</font></td><td>
         <asp:TextBox ID="txtAboutPatner" runat="server" class="textarea" TextMode="MultiLine" Wrap="False"></asp:TextBox>                     <br />
-         <div class="smallChar">Min. 50 Characters</div> <td>Physical Status<font class="RedFont" >*</font></td><td colspan=3>
+         <div class="smallChar">Min. 50 Characters</div> <td>Physical Status<font class="RedFont" >*</font>
+         <br />  <br />
+         Patner Pref. <font class="RedFont" >*</font>
+         
+         </td>
+         <td>
             <asp:DropDownList ID="ddlPhysicleStatus" runat="server" class="select">
                 <asp:ListItem>Select</asp:ListItem>
                 <asp:ListItem>Normal</asp:ListItem>
@@ -321,8 +326,25 @@
                 <asp:ListItem>Physically and mentally challenged</asp:ListItem>
                 <asp:ListItem>HIV positive</asp:ListItem>
             </asp:DropDownList>
+             <br />  <br />
+             <asp:DropDownList ID="ddlCastbar" runat="server" class="select">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Cast No Bar</asp:ListItem>
+                <asp:ListItem>In Same Cast</asp:ListItem>
+            </asp:DropDownList>
+           </td><td>
+           Maritial status<font class="RedFont" >*</font></td>
            
-           </td></tr>
+           <td>
+            <asp:DropDownList ID="ddlMaritialStatus" runat="server" class="select">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Single</asp:ListItem>
+                <asp:ListItem>Divorced</asp:ListItem>
+                <asp:ListItem>Widowed</asp:ListItem>
+                <asp:ListItem>Separated</asp:ListItem>
+            </asp:DropDownList> </td>
+           </tr>
+       
     </table>
     </div>
     </div>
@@ -365,7 +387,8 @@
     <table>
     <tr><td>Educational Qualification<font class="RedFont" >*</font><br /></td><td>
        <asp:DropDownList ID="ddlEducation" runat="server" class="select">
-            </asp:DropDownList></td><td>Annual  Income<font class="RedFont" >*</font></td><td>
+            </asp:DropDownList></td><td>Annual  Income<font class="RedFont" >*</font></td>
+            <td>
            <asp:DropDownList ID="ddlIncome" runat="server" class="select">
                <asp:ListItem Value="Select"></asp:ListItem>
                <asp:ListItem Value="&lt;1,00,000"></asp:ListItem>
@@ -427,17 +450,23 @@
        
     <div class="image_frame_964"   >
     <div class="content">
-    <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
-        <ContentTemplate>
+    
+       
        
     <table>
     <tr><td>Religion<font class="RedFont" >*</font></td><td>
        <asp:DropDownList ID="ddlReligion" runat="server" class="select" 
             AutoPostBack="True" onselectedindexchanged="ddlReligion_SelectedIndexChanged" >
-            </asp:DropDownList></td><td>Cast<font class="RedFont" >*</font></td><td>
+            </asp:DropDownList>
             
-                <asp:DropDownList ID="ddlcast" runat="server">
+            </td><td>Cast<font class="RedFont" >*</font></td><td>
+            
+                <asp:DropDownList ID="ddlcast" runat="server" AutoPostBack="True" 
+                    onselectedindexchanged="ddlcast_SelectedIndexChanged">
                 </asp:DropDownList>
+              
+            
+                <asp:TextBox ID="txtOther" runat="server" Visible="False"></asp:TextBox>
               
             
         </td></tr> <asp:HiddenField ID="hiddenField" runat="server" />
@@ -462,8 +491,7 @@
         </td></tr>
     </table>
         
-        </ContentTemplate>
-    </asp:UpdatePanel>
+       
        </div>
     </div>
       
@@ -556,8 +584,13 @@
                  frmvalidator.addValidation("txtAboutPatner", "minlen=50", "Minimum characters for About Your Patner is 50");
                  frmvalidator.addValidation("txtAboutPatner", "maxlen=200", "Maximum characters for About Your Patner is 200");
 
+
+
                  //Physical Status 
                  frmvalidator.addValidation("ddlPhysicleStatus", "dontselect=Select", "Please Select Physical Status");
+                 frmvalidator.addValidation("ddlMaritialStatus", "dontselect=Select", "Please Select Maritial Status");
+                 frmvalidator.addValidation("ddlCastbar", "dontselect=Select", "Please Select Marriage Prefrence");
+                 
 
                  frmvalidator.addValidation("ddlCity", "dontselect=", "Please Select City");
                  frmvalidator.addValidation("ddlCity", "dontselect=Select", "Please Select City");
@@ -585,7 +618,7 @@
 
                  frmvalidator.addValidation("ddlIncome", "dontselect=Select", "Please Select  your Annual Incom");
                  frmvalidator.addValidation("CheckBox1", "shouldselchk=on", "Please Select term And Condition");
-
+                 ddlMaritialStatus
 
                  frmvalidator.addValidation("ddlReligion", "dontselect=Select", "Please select Your Religion");
 
@@ -668,7 +701,7 @@
 
 <div id="templatemo_cr_bar_wrapper">
 	<div id="templatemo_cr_bar">
-    	Copyright © 
+    	All rights reserved To shaadisaagai.com
     </div>
 </div>
 </form>

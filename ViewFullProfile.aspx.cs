@@ -27,6 +27,8 @@ public partial class ViewFullProfile : System.Web.UI.Page
         FVMaindetail.DataBind();
         FVReligiouse.DataSource=objUser.SelectReligiousDetail();
         FVReligiouse.DataBind();
+        FVEducation.DataSource = objUser.SelectEducationDetails();
+        FVEducation.DataBind();
         lblName.Text = objUser.GetName();
         if (objAlbum.GetphotoStatus(objUser.User_Id, null).Tables[0].Rows[0]["Permission"].ToString() == "0")
         {
@@ -40,13 +42,14 @@ public partial class ViewFullProfile : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Title = lblName.Text;
         if (!IsPostBack)
         {
             if (Request.QueryString["ProfileID"] != null)
             {
                 
                 BindAllDetails();
-                Page.Title = lblName.Text;
+              
             }
             else
             {

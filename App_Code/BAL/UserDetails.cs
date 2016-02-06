@@ -13,6 +13,21 @@ public class UserDetails:User
     string _rashi;
     string mother_tounge;
 
+    string _CastBar;
+
+    public string CastBar
+    {
+        get { return _CastBar; }
+        set { _CastBar = value; }
+    }
+    string _MaritialStatus;
+
+    public string MaritialStatus
+    {
+        get { return _MaritialStatus; }
+        set { _MaritialStatus = value; }
+    }
+
     public string Mother_tounge
     {
         get { return mother_tounge; }

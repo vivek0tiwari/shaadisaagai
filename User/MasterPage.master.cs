@@ -27,6 +27,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         UserDetails BAL = new UserDetails();
+        this.Page.Title = "ShaadiSaagai.com";
         if (Session["uid_gender"] == null)
         {
             Response.Redirect("~/Default.aspx?refPage=" + Page.AppRelativeVirtualPath);

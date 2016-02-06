@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for DataBindig
@@ -89,12 +90,61 @@ public class DataBindig
         }
     }
 
+    public static bool AddNewCast(string CastName, string ReligionName)
+    {
+        try
+        {
+            SqlDataReader dr;
+            DbManager.Open();
+            SqlParameter []param = new SqlParameter[2];
+            param[0] = new SqlParameter("@CastName", CastName);
+            param[1] = new SqlParameter("@ReligionID", ReligionName);
+
+            DbManager.RunProcedure("Insert_New_Cast", param, out dr);
+            return Convert.ToBoolean(dr.HasRows);
+
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        finally
+        {
+            DbManager.Close();
+        }
+    }
+
+    public static bool CheckCast(string CastName)
+    {
+        try
+        {
+            SqlDataReader dr = DbManager.GetDataReader("select * from tblCast where Cast_Id='" + CastName + "'");
+            bool IsValidate = false;
+            IsValidate = dr.HasRows;
+            if (dr.HasRows)
+            {
+                IsValidate = true;
+            }
+            dr.Close();
+            DALuser.Close();
+            return IsValidate;
+
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        finally
+        {
+            DbManager.Close();
+        }
+    }
     public static DataSet BindReligion(DropDownList ddlReligion)
     {
         
         try
         {
-            DataSet ds = DbManager.GetDataSet("Select * From tblReligion ");
+            DataSet ds = DbManager.GetDataSet("Select * From tblReligion");
             ddlReligion.DataSource = ds;
             ddlReligion.CssClass = "Select";
             ddlReligion.DataTextField = "Religion";

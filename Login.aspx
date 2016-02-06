@@ -82,6 +82,33 @@
                <br />
               
    </div>
+    <script language="JavaScript" type="text/javascript"
+    xml:space="preserve">
 
+        function ValidateForm() {
+            var frmvalidator = new Validator("aspnetForm");
+
+            //PERSONAL DETAIL
+
+            //About Me 
+            frmvalidator.EnableMsgsTogether();
+            frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtUid", "req", "Please Insert User Name");
+            frmvalidator.addValidation("ctl00_ContentPlaceHolder1_txtPwd", "req", "Enter Your Password");
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+           </script>
 </asp:Content>
 
